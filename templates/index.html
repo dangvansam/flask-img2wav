@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img2wav</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        
+    }
+    .custom_btn{
+        background-color: lightgreen;
+        border: none;
+        padding: 8px;
+        border-radius: 3px;
+        margin-top: 10px;
+        
+    }    
+</style>
+<!-- <script type="text/javascript"> -->
+    <!-- var frm = $('#file_upload'); -->
+
+    <!-- frm.submit(function (e) { -->
+
+        <!-- e.preventDefault(); -->
+
+        <!-- $.ajax({ -->
+            <!-- type: frm.attr('method'), -->
+            <!-- url: frm.attr('action'), -->
+            <!-- data: frm.serialize(), -->
+            <!-- success: function (data) { -->
+                <!-- console.log('Submission was successful.'); -->
+                <!-- console.log(data); -->
+            <!-- }, -->
+            <!-- error: function (data) { -->
+                <!-- console.log('An error occurred.'); -->
+                <!-- console.log(data); -->
+            <!-- }, -->
+        <!-- }); -->
+    <!-- }); -->
+<!-- </script> -->
+<body>
+    <h2>img2wav</h2>
+    <form id="file_upload" action="/predict" method="post" enctype="multipart/form-data">
+        <input class="custom_btn" type="file" name="file" id="" style="padding: 5px;">
+        <input class="custom_btn" type="submit" value="Tải lên">
+    </form>
+    <div style="margin-top: 20px;">
+	{% if img_filename != '' %}
+        <img src="{{img_filename}}" alt="img_filename" height="80" width="80">
+	{% else %}
+		<h4>Select image file!</h4>
+	{% endif %}
+    </div>	
+    <div style="margin-top: 20px;">
+        <audio controls autoplay src="{{filename}}" type="audio/wav">
+    </div>
+</body>
+</html>
