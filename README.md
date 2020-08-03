@@ -10,4 +10,6 @@
 ```
 python flask_img2wav.py
 ```
+and open `localhost:4040`  
+  
 ![alt text](demo.PNG)
